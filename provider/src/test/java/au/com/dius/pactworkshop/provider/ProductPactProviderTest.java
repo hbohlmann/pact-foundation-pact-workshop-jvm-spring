@@ -2,10 +2,8 @@ package au.com.dius.pactworkshop.provider;
 
 import static org.mockito.Mockito.when;
 
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Date;
 import java.util.Optional;
 
 import org.apache.hc.core5.http.HttpRequest;
@@ -44,16 +42,7 @@ public class ProductPactProviderTest {
     @TestTemplate
     @ExtendWith(PactVerificationInvocationContextProvider.class)
     void verifyPact(PactVerificationContext context, HttpRequest request) {
-        replaceAuthHeader(request);
         context.verifyInteraction();
-    }
-
-    private void replaceAuthHeader(HttpRequest request) {
-        if (request.containsHeader("Authorization")) {
-            String header = "Bearer " + new SimpleDateFormat("yyyy-MM-dd'T'HH:mm").format(new Date());
-            request.removeHeaders("Authorization");
-            request.addHeader("Authorization", header);
-        }
     }
 
     @State("products exist")

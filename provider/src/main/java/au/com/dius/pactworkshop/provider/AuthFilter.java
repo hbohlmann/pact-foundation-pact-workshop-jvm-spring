@@ -14,7 +14,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Component
+// Disabled
+// @Component
 public class AuthFilter implements Filter {
 
     @Override

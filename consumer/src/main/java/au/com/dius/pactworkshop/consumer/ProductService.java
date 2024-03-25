@@ -38,11 +38,7 @@ public class ProductService {
 
     private HttpEntity<String> getRequestEntity() {
         HttpHeaders headers = new HttpHeaders();
-        headers.add(HttpHeaders.AUTHORIZATION, generateAuthToken());
         return new HttpEntity<>(headers);
     }
 
-    private String generateAuthToken() {
-        return "Bearer " +  new SimpleDateFormat("yyyy-MM-dd'T'HH:mm").format(new Date());
-    }
 }
