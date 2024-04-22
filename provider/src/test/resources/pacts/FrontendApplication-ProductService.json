@@ -25,10 +25,25 @@
       }
     },
     {
-      "description": "get product with ID 10",
+      "description": "get product with ID 11",
       "providerStates": [
         {
-          "name": "product with ID 10 exists",
+          "name": "product with ID 11 does not exist"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/product/11"
+      },
+      "response": {
+        "status": 404
+      }
+    },
+    {
+      "description": "get product with an ID",
+      "providerStates": [
+        {
+          "name": "product with an ID exists",
           "params": {
             "id": "10"
           }
@@ -92,21 +107,6 @@
           }
         },
         "status": 200
-      }
-    },
-    {
-      "description": "get product with ID 11",
-      "providerStates": [
-        {
-          "name": "product with ID 11 does not exist"
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "path": "/product/11"
-      },
-      "response": {
-        "status": 404
       }
     },
     {

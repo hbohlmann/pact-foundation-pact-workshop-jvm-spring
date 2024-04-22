@@ -60,8 +60,8 @@ public class ProductConsumerPactTest {
 
     @Pact(consumer = "FrontendApplication", provider = "ProductService")
     RequestResponsePact getOneProduct(PactDslWithProvider builder) {
-        return builder.given("product with ID 10 exists", Collections.singletonMap("id", "10"))
-                .uponReceiving("get product with ID 10")
+        return builder.given("product with an ID exists", Collections.singletonMap("id", "10"))
+                .uponReceiving("get product with an ID")
                 .method("GET")
                 .pathFromProviderState("/product/${id}", "/product/10")
                 .willRespondWith()

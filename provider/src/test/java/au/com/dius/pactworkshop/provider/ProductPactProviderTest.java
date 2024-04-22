@@ -61,9 +61,9 @@ public class ProductPactProviderTest {
         when(productRepository.fetchAll()).thenReturn(Collections.emptyList());
     }
 
-    @State("product with ID 10 exists")
+    @State("product with an ID exists")
     Map<String, String> toProductWithIdTenExistsState() {
-        String anId = "10";
+        String anId = "4711";
 		when(productRepository.getById(anId)).thenReturn(Optional.of(new Product(anId, "CREDIT_CARD", "28 Degrees", "v1")));
 		return Collections.singletonMap("id", anId);
     }
