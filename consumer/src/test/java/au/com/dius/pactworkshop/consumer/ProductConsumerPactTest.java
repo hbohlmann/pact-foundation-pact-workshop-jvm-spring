@@ -60,15 +60,15 @@ public class ProductConsumerPactTest {
 
     @Pact(consumer = "FrontendApplication", provider = "ProductService")
     RequestResponsePact getOneProduct(PactDslWithProvider builder) {
-        return builder.given("product with ID 10 exists")
+        return builder.given("product with ID 10 exists", Collections.singletonMap("id", "10"))
                 .uponReceiving("get product with ID 10")
                 .method("GET")
-                .path("/product/10")
+                .pathFromProviderState("/product/${id}", "/product/10")
                 .willRespondWith()
                 .status(200)
                 .headers(headers())
                 .body(newJsonBody(object -> {
-                    object.stringType("id", "10");
+                	object.valueFromProviderState("id", "id", "10");
                     object.stringType("type", "CREDIT_CARD");
                     object.stringType("name", "28 Degrees");
                 }).build())

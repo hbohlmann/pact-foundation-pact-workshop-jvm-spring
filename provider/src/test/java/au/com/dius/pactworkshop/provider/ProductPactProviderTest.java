@@ -4,6 +4,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Map;
 import java.util.Optional;
 
 import org.apache.hc.core5.http.HttpRequest;
@@ -61,7 +62,9 @@ public class ProductPactProviderTest {
     }
 
     @State("product with ID 10 exists")
-    void toProductWithIdTenExistsState() {
-        when(productRepository.getById("10")).thenReturn(Optional.of(new Product("10", "CREDIT_CARD", "28 Degrees", "v1")));
+    Map<String, String> toProductWithIdTenExistsState() {
+        String anId = "10";
+		when(productRepository.getById(anId)).thenReturn(Optional.of(new Product(anId, "CREDIT_CARD", "28 Degrees", "v1")));
+		return Collections.singletonMap("id", anId);
     }
 }
