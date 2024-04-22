@@ -37,8 +37,8 @@ public class ProductConsumerPactTest {
                 .headers(headers())
                 .body(newJsonArrayMinLike(2, array ->
                         array.object(object -> {
-                            object.stringType("id", "09");
-                            object.stringType("type", "CREDIT_CARD");
+                            object.stringMatcher("id", "^\\d+$", "09");
+                        	object.stringMatcher("type", "^(CREDIT_CARD|DEBIT_CARD)$", "CREDIT_CARD");
                             object.stringType("name", "Gem Visa");
                         })
                 ).build())
@@ -69,7 +69,7 @@ public class ProductConsumerPactTest {
                 .headers(headers())
                 .body(newJsonBody(object -> {
                 	object.valueFromProviderState("id", "id", "10");
-                    object.stringType("type", "CREDIT_CARD");
+                	object.stringMatcher("type", "^(CREDIT_CARD|DEBIT_CARD)$", "CREDIT_CARD");
                     object.stringType("name", "28 Degrees");
                 }).build())
                 .toPact();

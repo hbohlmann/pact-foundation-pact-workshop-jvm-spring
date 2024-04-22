@@ -100,7 +100,8 @@
               "combine": "AND",
               "matchers": [
                 {
-                  "match": "type"
+                  "match": "regex",
+                  "regex": "^(CREDIT_CARD|DEBIT_CARD)$"
                 }
               ]
             }
@@ -151,7 +152,8 @@
               "combine": "AND",
               "matchers": [
                 {
-                  "match": "type"
+                  "match": "regex",
+                  "regex": "^\\d+$"
                 }
               ]
             },
@@ -167,7 +169,8 @@
               "combine": "AND",
               "matchers": [
                 {
-                  "match": "type"
+                  "match": "regex",
+                  "regex": "^(CREDIT_CARD|DEBIT_CARD)$"
                 }
               ]
             }
