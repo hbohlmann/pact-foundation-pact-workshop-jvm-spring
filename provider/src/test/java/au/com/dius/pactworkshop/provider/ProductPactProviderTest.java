@@ -49,8 +49,8 @@ public class ProductPactProviderTest {
     @State("products exist")
     void toProductsExistState() {
         when(productRepository.fetchAll()).thenReturn(
-                Arrays.asList(new Product("09", "CREDIT_CARD", "Gem Visa", "v1"),
-                        new Product("10", "CREDIT_CARD", "28 Degrees", "v1")));
+                Arrays.asList(new Product("01", "CREDIT_CARD", "Gem Visa", "v1"),
+                        new Product("02", "DEBIT_CARD", "28 Degrees", "v1")));
     }
 
     @State({
